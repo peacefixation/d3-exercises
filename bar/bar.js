@@ -12,13 +12,17 @@ var color2 = {
     b: 200,
 };
 
+var numBars = 25;
+var minValue = 20;
+var maxValue = 100;
+
 function init() {
-    drawBarSvg(generateNumbers(25, 20, 100));
+    drawBarSvg(generateNumbers(numBars, minValue, maxValue));
 }
 
 function drawBarSvg(dataset) {
     let svgWidth = 500;
-    let svgHeight = 100;
+    let svgHeight = maxValue;
     let barPadding = 1;
 
     let svg = d3.select("body")
@@ -41,7 +45,7 @@ function drawBarSvg(dataset) {
             return d;
         })
         .attr("fill", (d) => {
-            let c = lerpRGB(color1, color2, d, 0, 100);
+            let c = lerpRGB(color1, color2, d, minValue, maxValue);
             return "rgb(" + c.r + ", " + c.g + ", " + c.b + ")";
         });
 

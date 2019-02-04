@@ -25,11 +25,13 @@ function drawBarSvg(dataset) {
     let svgHeight = maxValue;
     let barPadding = 1;
 
+    // create the SVG element
     let svg = d3.select("body")
         .append("svg")
         .attr("width", svgWidth)
         .attr("height", svgHeight)
 
+    // create the bars
     svg.selectAll("rect")
         .data(dataset)
         .enter()
@@ -49,6 +51,7 @@ function drawBarSvg(dataset) {
             return "rgb(" + c.r + ", " + c.g + ", " + c.b + ")";
         });
 
+    // create the labels
     svg.selectAll("text")
         .data(dataset)
         .enter()

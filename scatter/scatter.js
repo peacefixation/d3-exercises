@@ -32,8 +32,6 @@ function drawScatter(dataset) {
             return height - d[1];
         })
         .attr("r", 3)
-        .attr("stroke", "black")
-        .attr("stroke-width", 1)
         .attr("fill", "black");
 
     // create the labels
